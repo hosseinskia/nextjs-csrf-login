@@ -18,6 +18,8 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="icon" href="/logo.png" />
       </head>
       <body className="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
         <Navbar />
