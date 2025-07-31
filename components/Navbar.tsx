@@ -1,30 +1,30 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import Button from './Button';
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import axios from "axios";
+import toast from "react-hot-toast";
+import Button from "./Button";
 
 export function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
-  const [csrfToken, setCsrfToken] = useState('');
+  const [csrfToken, setCsrfToken] = useState("");
   const isMounted = useRef(false);
 
   const fetchCsrfToken = async () => {
     try {
-      const response = await axios.get('/api/csrf', { withCredentials: true });
+      const response = await axios.get("/api/csrf", { withCredentials: true });
       if (response.data.csrfToken) {
         setCsrfToken(response.data.csrfToken);
       } else {
-        toast.error('Failed to initialize security token');
-        console.error('CSRF response missing token:', response.data);
+        toast.error("Failed to initialize security token");
+        console.error("CSRF response missing token:", response.data);
       }
     } catch (err: any) {
-      toast.error('Failed to initialize security token');
-      console.error('CSRF fetch error:', err.message, err.response?.data);
+      toast.error("Failed to initialize security token");
+      console.error("CSRF fetch error:", err.message, err.response?.data);
       // Retry once after a short delay
       setTimeout(fetchCsrfToken, 1000);
     }
@@ -41,20 +41,24 @@ export function Navbar() {
 
   const handleLogout = async () => {
     if (!csrfToken) {
-      toast.error('Security token not initialized');
-      console.error('No CSRF token available for logout');
+      toast.error("Security token not initialized");
+      console.error("No CSRF token available for logout");
       return;
     }
     try {
-      await axios.post('/api/logout', {}, {
-        withCredentials: true,
-        headers: { 'X-CSRF-Token': csrfToken },
-      });
-      router.push('/login');
+      await axios.post(
+        "/api/logout",
+        {},
+        {
+          withCredentials: true,
+          headers: { "X-CSRF-Token": csrfToken },
+        }
+      );
+      router.push("/login");
     } catch (err: any) {
-      const errorMessage = err.response?.data?.error || 'Logout failed';
+      const errorMessage = err.response?.data?.error || "Logout failed";
       toast.error(errorMessage);
-      console.error('Logout error:', err.message, err.response?.data);
+      console.error("Logout error:", err.message, err.response?.data);
       await fetchCsrfToken(); // Refresh CSRF token on failure
     }
   };
@@ -65,7 +69,7 @@ export function Navbar() {
         <Link href="/" className="text-xl font-bold">
           SecureApp
         </Link>
-        {pathname !== '/login' && (
+        {pathname === "/dashboard" && (
           <div className="space-x-4">
             <Link href="/dashboard" className="text-sm hover:underline">
               Dashboard

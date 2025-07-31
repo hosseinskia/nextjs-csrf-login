@@ -34,7 +34,7 @@ Additional security features include:
 
 ## Try It Live
 
-Visit the live demo at [https://nextjs-crsf-login.vercel.app/login](https://nextjs-crsf-login.vercel.app/login).
+Visit the live demo at [https://nextjs-csrf-login.vercel.app/login](https://nextjs-csrf-login.vercel.app/login).
 
 **Test Credentials**:
 
@@ -46,7 +46,7 @@ Visit the live demo at [https://nextjs-crsf-login.vercel.app/login](https://next
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/your-username/nextjs-login-csrf.git
+   git clone https://github.com/hosseinskia/nextjs-login-csrf.git
    cd nextjs-login-csrf
    ```
 
@@ -70,10 +70,7 @@ Visit the live demo at [https://nextjs-crsf-login.vercel.app/login](https://next
    openssl rand -hex 32
    ```
 
-4. **Add Logo**:
-   Place a `logo.png` in `public/` or update `components/Header.tsx` to use an external URL (e.g., `https://ik.imagekit.io/pibjyepn7p9/Lilac_Navy_Simple_Line_Business_Logo_CGktk8RHK.png`).
-
-5. **Run the App**:
+4. **Run the App**:
 
    ```bash
    npm run dev
@@ -81,14 +78,13 @@ Visit the live demo at [https://nextjs-crsf-login.vercel.app/login](https://next
 
    Access at `http://localhost:3000`.
 
-6. **Build for Production**:
+5. **Build for Production**:
 
    ```bash
    npm run build
-   npm run start
    ```
 
-7. **Test Credentials**:
+6. **Test Credentials**:
    - Email: `user@secureapp.com`
    - Password: `SecurePass123!`
 
