@@ -16,6 +16,7 @@ CSRF attacks trick users into performing unintended actions (e.g., logging out o
 - Clearing tokens after each request to prevent reuse.
 
 Additional security features include:
+
 - Rate limiting (5 login attempts per minute per IP).
 - XSS prevention via input sanitization.
 - POST-only authentication to block query parameter leaks.
@@ -31,26 +32,40 @@ Additional security features include:
 - **TypeScript**: Ensures type safety across the app.
 - **Tailwind CSS**: Provides a modern, responsive design.
 
+## Try It Live
+
+Visit the live demo at [https://nextjs-crsf-login.vercel.app/login](https://nextjs-crsf-login.vercel.app/login).
+
+**Test Credentials**:
+
+- Email: `user@secureapp.com`
+- Password: `SecurePass123!`
+
 ## Setup
 
 1. **Clone the Repository**:
+
    ```bash
    git clone https://github.com/your-username/nextjs-login-csrf.git
    cd nextjs-login-csrf
    ```
 
 2. **Install Dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Set Up Environment Variables**:
    Create a `.env.local` file in the root directory:
+
    ```bash
    CSRF_SECRET=<32-byte-hex-string>
    SESSION_SECRET=<32-byte-hex-string>
    ```
+
    Generate secrets with:
+
    ```bash
    openssl rand -hex 32
    ```
@@ -59,12 +74,15 @@ Additional security features include:
    Place a `logo.png` in `public/` or update `components/Header.tsx` to use an external URL (e.g., `https://ik.imagekit.io/pibjyepn7p9/Lilac_Navy_Simple_Line_Business_Logo_CGktk8RHK.png`).
 
 5. **Run the App**:
+
    ```bash
    npm run dev
    ```
+
    Access at `http://localhost:3000`.
 
 6. **Build for Production**:
+
    ```bash
    npm run build
    npm run start
@@ -77,6 +95,7 @@ Additional security features include:
 ## File Structure
 
 - **`app/`**:
+
   - `globals.css`: Global styles with Tailwind CSS.
   - `layout.tsx`: Root layout with `Navbar` and `Toaster`.
   - `page.tsx`: Home page with a "Sign In" button.
@@ -88,17 +107,20 @@ Additional security features include:
   - `api/logout/route.ts`: Clears session and CSRF tokens.
 
 - **`components/`**:
+
   - `Button.tsx`: Reusable button component.
   - `Header.tsx`: Login page header with logo.
   - `Input.tsx`: Form input with validation feedback.
   - `Navbar.tsx`: Conditional navbar for login and other pages.
 
 - **`lib/`**:
+
   - `auth.ts`: Manages user authentication and sessions.
   - `security.ts`: Handles CSRF token generation and sanitization.
   - `withCsrf.ts`: Middleware for CSRF validation.
 
 - **`public/`**:
+
   - `logo.png`: App logo (ensure it exists).
 
 - **Configuration**:
@@ -113,9 +135,9 @@ Additional security features include:
 - **Production**: Deploy over HTTPS and use a database/Redis for sessions.
 - **Extending**: Use `lib/withCsrf.ts` for custom POST routes:
   ```typescript
-  import { withCsrf } from './lib/withCsrf';
+  import { withCsrf } from "./lib/withCsrf";
   export const POST = withCsrf(async (request) => {
-    return NextResponse.json({ message: 'Success' });
+    return NextResponse.json({ message: "Success" });
   });
   ```
 - **Signup**: The "Sign Up" link is a placeholder; implement as needed.
@@ -123,4 +145,3 @@ Additional security features include:
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
