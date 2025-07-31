@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Ensure smooth scrolling and consistent text rendering across browsers */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%; /* Prevent mobile browsers from adjusting text size */
+}
+
+/* Root styles for consistent layout and theming */
+body {
+  background: var(--background, #f0f4ff);
+  color: var(--foreground, #2d1a4f);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh; /* Use dynamic viewport height for mobile compatibility */
+  box-sizing: border-box;
+  overscroll-behavior: none; /* Prevent overscroll bounce on mobile */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
