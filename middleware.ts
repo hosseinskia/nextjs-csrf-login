@@ -18,7 +18,10 @@ export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('X-Frame-Options', 'DENY');
-  response.headers.set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' https://ik.imagekit.io data:");
+  response.headers.set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self';");
+  if (request.nextUrl.pathname.startsWith('/dashboard')) {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  }
   return response;
 }
 
