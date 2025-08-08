@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Navbar } from "../components/Navbar";
+import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "react-hot-toast";
 
 export const metadata = {
@@ -42,6 +43,7 @@ export default function RootLayout({
       </head>
       <body className="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
         <Navbar />
+        <Analytics />
         <main>{children}</main>
         <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
       </body>
