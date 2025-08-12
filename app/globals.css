@@ -2,6 +2,7 @@
 
 /* Ensure smooth scrolling and consistent text rendering across browsers */
 html {
+  overflow: hidden;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
