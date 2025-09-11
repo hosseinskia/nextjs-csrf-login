@@ -69,7 +69,7 @@ Visit the live demo at [https://nextjs-csrf-login.vercel.app/login](https://next
    Generate secrets with:
 
    ```bash
-   openssl rand -hex 32
+   node -p "require('crypto').randomBytes(32).toString('base64url')"
    ```
 
 4. **Run the App**:
