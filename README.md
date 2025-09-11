@@ -119,7 +119,7 @@ Visit the live demo at [https://nextjs-csrf-login.vercel.app/login](https://next
 
 - **`public/`**:
 
-  - `logo.png`: App logo (ensure it exists).
+  - `logo.png`: App logo.
 
 - **Configuration**:
   - `package.json`: Dependencies and scripts.
@@ -127,18 +127,6 @@ Visit the live demo at [https://nextjs-csrf-login.vercel.app/login](https://next
   - `tailwind.config.js`: Tailwind CSS configuration.
   - `tsconfig.json`: TypeScript configuration.
   - `.env.local`: Environment variables for secrets.
-
-## Security Notes
-
-- **Production**: Deploy over HTTPS and use a database/Redis for sessions.
-- **Extending**: Use `lib/withCsrf.ts` for custom POST routes:
-  ```typescript
-  import { withCsrf } from "./lib/withCsrf";
-  export const POST = withCsrf(async (request) => {
-    return NextResponse.json({ message: "Success" });
-  });
-  ```
-- **Signup**: The "Sign Up" link is a placeholder; implement as needed.
 
 ## License
 
