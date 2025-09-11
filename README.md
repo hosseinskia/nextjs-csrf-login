@@ -2,6 +2,8 @@
 
 A secure Next.js application featuring a login system with CSRF protection, a dashboard, and rate-limited authentication.
 
+![Application banner](./banner.png)
+
 ## Overview
 
 This project is a lightweight, secure web application built with Next.js, TypeScript, and Tailwind CSS. It provides a login page, a protected dashboard, and a custom 404 page, with a focus on security through CSRF (Cross-Site Request Forgery) protection, rate limiting, and XSS prevention. The app ensures users can log in securely, access a dashboard, and log out without exposing sensitive data.
